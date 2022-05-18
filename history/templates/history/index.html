@@ -1,0 +1,31 @@
+{% extends 'history/base.html' %}
+{% block title %} {{ seo_contain.index_meta_title }}  {% endblock %}
+{% block meta_description %} {{ seo_contain.index_meta_description }} {% endblock %}
+{% block meta_keywords %} {{ seo_contain.index_meta_keywords }} {% endblock %}
+{% block meta_title %} {{ seo_contain.index_meta_title }} {% endblock %}
+{% load staticfiles %}
+{% load data_load %}
+{% block content %}
+
+
+<section class="cat_data">
+    <div class="container">
+        {% regroup service_data by catagory as catagory_list %}
+        {% for data in catagory_list %}
+            <h2>{{ data.grouper }}</h2> 
+            <div class="row slideanim">
+                {% for data1 in  data.list|slice:"8" %}
+                    <div class="col-sm-3 col-xs-12">
+                        <div class="body-panel">
+                            <a href="/{{data.grouper}}/{{ data1.title_url|str2url }}/"><img src="/static/history/media/{{ data1.images }}" alt="{{ data.image_alt_tag }}"></a>
+                            <a href="/{{data.grouper}}/{{ data1.title_url|str2url }}/"><h1>{{ data1.title }}</h1></a>
+                        </div>  
+                    </div>
+                {% endfor %}
+                <div class="col-xs-12"><a href="/{{ data.grouper }}"><h4>More</h4></a></div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

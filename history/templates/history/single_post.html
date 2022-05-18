@@ -1,0 +1,120 @@
+{% extends 'history/base.html' %}
+{% block title %} {{ single_data.meta_title }}  {% endblock %}
+{% load staticfiles %}
+{% load data_load %}
+{% block meta_description %} {{ single_data.meta_description }} {% endblock %}
+{% block meta_keywords %} {{single_data.meta_keywords}} {% endblock %}
+{% block meta_title %} {{single_data.meta_title}} {% endblock %}
+{% block og_title %} {{single_data.meta_title}} {% endblock %}
+{% block og_url %}{{ single_data.catagory|str2url }}/{{single_data.title_url|str2url}}{% endblock %}
+{% block og_image %}{{single_data.images}}{% endblock %}
+{% block og_description %}{{single_data.meta_description}} {% endblock %}
+{% block twitter_title %}{{single_data.meta_title}}{% endblock %}
+{% block twitter_image %}{{single_data.images}}{% endblock %}
+{% block twitter_description %}{{single_data.meta_description}} {% endblock %}
+{% block twitter_url %}{{ single_data.catagory|str2url }}/{{single_data.title_url|str2url}}{% endblock %}
+
+{% block content %}
+
+    <div class="post">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- webpedia1 -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-2769234137937743"
+                         data-ad-slot="9358912246"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    
+                    <div class="feature_img">
+                        <h1>{{ single_data.title }}</h1>
+                        <img src="/static/history/media/{{ single_data.images }}" alt="{{ data.image_alt_tag }}">
+                        <p>{{ single_data.details|safe }}</p>
+                        
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- webpedia1 -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-2769234137937743"
+                         data-ad-slot="9358912246"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                        
+                    </div>       
+                </div>
+                <div class="col-md-3">
+                    <div class="popular-post">
+                         <h3>Popular Post</h3>
+                    </div>
+                    {% for data in popular_post|slice:"4" %}
+                        <div class="popular-list">
+                            <div class="list-left">
+                                <a href="/{{data.catagory}}/{{ data.title_url|str2url }}/"><img src="/static/history/media/{{ data.images }}" alt="{{ data.image_alt_tag }}"></a>
+                            </div>
+                            <div class="list-right">
+                                <a href="/{{data.catagory}}/{{ data.title_url|str2url }}/"><b>{{ data.title }}</b></a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                                        
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- webpedia1 -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-2769234137937743"
+                         data-ad-slot="9358912246"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--related start-->
+    <section class="relaytedpost">
+      <div class="container">
+          <h2>Relayted post</h2> 
+            <div class="row slideanim">
+                {% for data in rel_post|slice:"8" %}
+                    <div class="col-sm-3 col-xs-12">
+                        <div class="body-panel">
+                            <a href="/{{data.catagory}}/{{ data.title_url|str2url }}/"><img src="/static/history/media/{{data.images}}" alt="{{ data.image_alt_tag }}"></a>
+                            <a href="/{{data.catagory}}/{{ data.title_url|str2url }}/"><h1>{{data.title}}</h1></a>
+                        </div>
+                    </div>
+                {% endfor %}      
+            </div>
+        </div>
+    </section>
+
+
+<div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style" style="left:-4px; top:150px;">
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+<div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_default_style" style="bottom:0px; right:0px;">
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+
+{% endblock %}

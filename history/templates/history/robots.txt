@@ -1,0 +1,5 @@
+User-agent: *
+allow: /
+Disallow: /search
+Disallow: /admin/
+Sitemap: https://webpediaonline.com/sitemap.xml
